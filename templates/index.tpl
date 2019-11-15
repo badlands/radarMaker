@@ -18,7 +18,7 @@
 <script>
 radar_visualization({
   svg_id: "radar",
-  width: 1450,
+  width: 1280,
   height: 1000,
   colors: {
     background: "#fff",
@@ -26,18 +26,8 @@ radar_visualization({
     inactive: "#ddd"
   },
   title: "{$RADAR_TITLE}",
-  quadrants: [
-    { name: "Languages" },
-    { name: "Infrastructure" },
-    { name: "Frameworks" },
-    { name: "Data Management" }
-  ],
-  rings: [
-    { name: "ADOPT", color: "#93c47d" },
-    { name: "TRIAL", color: "#93d2c2" },
-    { name: "ASSESS", color: "#fbdb84" },
-    { name: "HOLD", color: "#efafa9" }
-  ],
+  quadrants: {$RADAR_QUADRANTS},
+  rings: {$RADAR_RINGS},
   print_layout: true,
   // zoomed_quadrant: 0,
   entries: {$RADAR_ENTRIES}

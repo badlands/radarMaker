@@ -31,8 +31,13 @@ fs.readFile(dataFile, { encoding: 'utf-8' }, function(err, dataContent) {
         if (err) { return }
 
         const titleRegex = /{\$RADAR_TITLE}/g
+        const quadrantsReges = /{\$RADAR_QUADRANTS}/g
+        const ringsReges = /{\$RADAR_RINGS}/g
         const entriesRegex = /{\$RADAR_ENTRIES}/g
+
         var output = data.replace(titleRegex, RADAR_TITLE);
+        output = output.replace(quadrantsReges, JSON.stringify(QUADRANTS));
+        output = output.replace(ringsReges, JSON.stringify(RINGS));
         output = output.replace(entriesRegex, JSON.stringify(entries));
 
         console.log(output);
