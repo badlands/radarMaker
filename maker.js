@@ -51,17 +51,17 @@ function lineToJson(line) {
 
 function stringToQuadrant(str) {  
   switch(String(str).toLowerCase()) {
-    case "languages":
+    case "tools":
       return 0;
-    case "infrastructure":
+    case "techniques":
       return 1;
-    case "frameworks":
+    case "data":
       return 2;
-    case "data management":
+    case "platforms":
       return 3;                
   }
 
-  return -1
+  return -1;
 }
 
 function stringToRing(str) {
@@ -72,22 +72,14 @@ function stringToRing(str) {
       return 1;
     case "assess":
       return 2;
-    case "hold":
+    case "retire":
       return 3;                
   }
 
-  return -1
+  return -1;
 }
-
 
 module.exports.csvToJson = csvToJson;
 module.exports.stringToQuadrant = stringToQuadrant;
 module.exports.stringToRing = stringToRing;
 module.exports.lineToJson = lineToJson;
-
-// const csv = 'name,ring,quadrant,isNew,description \
-// Composer,adopt,tools,Yes,"Although the idea of dependency management ...';
-
-// const json = csvToJson(csv);
-
-// console.log(json);

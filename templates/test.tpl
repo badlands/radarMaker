@@ -1,0 +1,1 @@
+Ciao {$RADAR_TITLE}!

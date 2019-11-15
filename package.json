@@ -2,7 +2,7 @@
   "name": "radarmaker",
   "version": "1.0.0",
   "description": "",
-  "main": "maker.js",
+  "main": "main.js",
   "directories": {
     "doc": "docs"
   },
