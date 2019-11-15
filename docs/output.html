@@ -18,7 +18,7 @@
 <script>
 radar_visualization({
   svg_id: "radar",
-  width: 1280,
+  width: 1450,
   height: 1000,
   colors: {
     background: "#fff",
