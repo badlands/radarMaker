@@ -72,7 +72,7 @@ function stringToRing(str) {
       return 1;
     case "assess":
       return 2;
-    case "retire":
+    case "hold":
       return 3;                
   }
 

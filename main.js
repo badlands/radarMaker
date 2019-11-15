@@ -14,14 +14,14 @@ const RINGS = [
     { name: "ADOPT", color: "#93c47d" },
     { name: "TRIAL", color: "#93d2c2" },
     { name: "ASSESS", color: "#fbdb84" },
-    { name: "RETIRE", color: "#efafa9" }
+    { name: "HOLD", color: "#efafa9" }
 ];
 
 const testString = 'name,ring,quadrant,isNew,description\n\
 Composer,adopt,tools,Yes,"Although the idea of dependency management ..."\n\
 Canary builds,trial,techniques,Yes,"Many projects have external code dependencies ..."\n\
 Apache Kylin,assess,data,Yes,"Apache Kylin is an open source analytics solution ..."\n\
-JSF,retire,platforms,Yes,"We continue to see teams run into trouble using JSF"\n\
+JSF,hold,platforms,Yes,"We continue to see teams run into trouble using JSF"\n\
 Swift,adopt,platforms,Yes,"Swift is a modern programming language for mobile apps and more"\n\
 Terraform,adopt,tools,No,"<Insert description>"';
 
