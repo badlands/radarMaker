@@ -1,0 +1,22 @@
+{
+  "name": "radarmaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "maker.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-jest": "^23.0.4",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "papaparse": "^5.1.0"
+  }
+}
