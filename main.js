@@ -1,6 +1,11 @@
-var fs = require('fs'),
-    path = require('path'),    
-    filePath = path.join(__dirname, 'templates/index.tpl');
+const fs = require('fs'),
+    path = require('path');
+
+
+const templateFile = path.join(__dirname, 'templates/index.tpl');
+const dataFile = path.join(__dirname, 'data/radar.csv');
+const destFile = path.join(__dirname, 'docs/test.html');
+
 const maker = require('./maker.js');
 
 const RADAR_TITLE = 'ICT Tech Radar';
@@ -17,23 +22,27 @@ const RINGS = [
     { name: "HOLD", color: "#efafa9" }
 ];
 
-const testString = 'name,ring,quadrant,isNew,description\n\
-Composer,adopt,tools,Yes,"Although the idea of dependency management ..."\n\
-Canary builds,trial,techniques,Yes,"Many projects have external code dependencies ..."\n\
-Apache Kylin,assess,data,Yes,"Apache Kylin is an open source analytics solution ..."\n\
-JSF,hold,platforms,Yes,"We continue to see teams run into trouble using JSF"\n\
-Swift,adopt,platforms,Yes,"Swift is a modern programming language for mobile apps and more"\n\
-Terraform,adopt,tools,No,"<Insert description>"';
-
-const ENTRIES = maker.csvToJson(testString);
-
-fs.readFile(filePath, { encoding: 'utf-8' }, function(err, data) {
+fs.readFile(dataFile, { encoding: 'utf-8' }, function(err, dataContent) {
     if (err) { return }
 
-    const titleRegex = /{\$RADAR_TITLE}/g
-    const entriesRegex = /{\$RADAR_ENTRIES}/g
-    var output = data.replace(titleRegex, RADAR_TITLE);
-    output = data.replace(entriesRegex, JSON.stringify(ENTRIES));
+    const entries = maker.csvToJson(dataContent);
 
-    console.log(output);
+    fs.readFile(templateFile, { encoding: 'utf-8' }, function(err, data) {
+        if (err) { return }
+
+        const titleRegex = /{\$RADAR_TITLE}/g
+        const entriesRegex = /{\$RADAR_ENTRIES}/g
+        var output = data.replace(titleRegex, RADAR_TITLE);
+        output = output.replace(entriesRegex, JSON.stringify(entries));
+
+        console.log(output);
+
+        fs.writeFile(destFile, output, (err) => {
+            if (err) {
+                return console.log(err);
+            }
+        
+            console.log("=== Done ===");
+        }); 
+    });
 });
