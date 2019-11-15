@@ -1,9 +1,9 @@
 name,ring,quadrant,isNew,description
 Composer,adopt,tools,Yes,"Although the idea of dependency management ..."
 Canary builds,trial,techniques,Yes,"Many projects have external code dependencies ..."
-Apache Kylin,assess,platforms,Yes,"Apache Kylin is an open source analytics solution ..."
-JSF,hold,languages & frameworks,Yes,"We continue to see teams run into trouble using JSF"
-Swift,adopt,languages & frameworks,Yes,"Swift is a modern programming language for mobile apps and more"
+Apache Kylin,assess,tools,Yes,"Apache Kylin is an open source analytics solution ..."
+JSF,hold,platforms,Yes,"We continue to see teams run into trouble using JSF"
+Swift,adopt,tools,Yes,"Swift is a modern programming language for mobile apps and more"
 Terraform,adopt,tools,No,"<Insert description>"
 Stress testing,adopt,techniques,Yes,"<Insert description>"
 Load testing,adopt,techniques,Yes,"<Insert description>"

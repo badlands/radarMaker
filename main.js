@@ -4,7 +4,7 @@ const fs = require('fs'),
 
 const templateFile = path.join(__dirname, 'templates/index.tpl');
 const dataFile = path.join(__dirname, 'data/radar.csv');
-const destFile = path.join(__dirname, 'docs/test.html');
+const destFile = path.join(__dirname, 'docs/output.html');
 
 const maker = require('./maker.js');
 

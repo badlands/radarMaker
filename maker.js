@@ -61,6 +61,7 @@ function stringToQuadrant(str) {
       return 3;                
   }
 
+  console.error("Invalid quadrant: " + str);
   return -1;
 }
 
@@ -76,6 +77,7 @@ function stringToRing(str) {
       return 3;                
   }
 
+  console.error("Invalid ring: " + str);
   return -1;
 }
 
