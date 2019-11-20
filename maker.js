@@ -6,14 +6,16 @@ function parseQuadrantsCSV(csvString) {
     return {};
   }
 
-  csv.data.forEach( (index, quadrant) => console.log(index + "." + quadrant);
-  return csv.data.map(line => quadrantLineToJson(line)).filter(entry => entry.id.length > 0);  
+  // console.debug(csv.data.map(line => quadrantLineToJson(line)))
+
+  return csv.data.map(line => quadrantLineToJson(line)).filter(entry => entry.id !== undefined);  
 }
 
 function quadrantLineToJson(line) {
-  if (line.length < 3) { return null }
+  if (line.length < 3) { return { "index": -1 } }
 
   return {
+    "index": Number(line.index),
     "id": line.id,
     "name": line.name,
     "description": line.description
@@ -68,14 +70,11 @@ class RadarMaker {
 
   stringToQuadrant(str) {
     const requiredQuadrantId = String(str).toLowerCase();
-
-    console.log(this.quadrants);
+    // console.debug(this.quadrants);
     const quadrant = this.quadrants.filter(q => q.id == requiredQuadrantId);
 
-    console.log("! " + str + " => " + quadrant);
-    if (quadrant.length > 0) { 
-      console.log("! " + str + " => " + quadrant + " -> " + this.quadrants.indexOf(quadrant));      
-      return this.quadrants.indexOf(quadrant);
+    if (quadrant.length > 0) {     
+      return quadrant[0].index;
     } else { return -1 };
 
     // switch(String(str).toLowerCase()) {

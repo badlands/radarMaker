@@ -24,17 +24,25 @@ const RINGS = [
     { name: "HOLD", color: "#efafa9" }
 ];
 
+console.log("Starting")
 fs.readFile(quadrantsFile, { encoding: 'utf-8' }, (err, quadrantsContent) => {
     if (err) { return }
 
     const QUADRANTS = maker.parseQuadrantsCSV(quadrantsContent);
-    // console.log(quadrants);
+
+    console.log(".. loaded " + QUADRANTS.length + " quadrants");
+    QUADRANTS.forEach(q => { console.log(".... " + q.id) });
+
+
+    console.log(JSON.stringify(QUADRANTS))
 
     fs.readFile(dataFile, { encoding: 'utf-8' }, function(err, dataContent) {
         if (err) { return }
 
         const radarMaker = new maker.radarMaker(QUADRANTS, []);
         const entries = radarMaker.csvToJson(dataContent);
+
+        entries.forEach (e => { console.debug(e.label + " => " + e.quadrant) } )
 
         fs.readFile(templateFile, { encoding: 'utf-8' }, function(err, data) {
             if (err) { return }
@@ -49,7 +57,7 @@ fs.readFile(quadrantsFile, { encoding: 'utf-8' }, (err, quadrantsContent) => {
             output = output.replace(ringsReges, JSON.stringify(RINGS));
             output = output.replace(entriesRegex, JSON.stringify(entries));
 
-            // console.log(output);
+            //console.log(output);
 
             fs.writeFile(destFile, output, (err) => {
                 if (err) {
