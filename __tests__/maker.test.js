@@ -1,4 +1,10 @@
-const sut = require('../maker.js');
+const RadarMaker = require('../maker.js').radarMaker;
+const QUADRANTS = [ { index: 0, id: "tools", name: "Tools" }, { index: 1, id: "techniques", name: "Techniques" }, { index: 2, id: "data", name: "Data" }, { index: 3, id: "platforms", name: "Platforms" } ];
+var sut = null;
+
+beforeEach(() => {
+    sut = new RadarMaker(QUADRANTS, {})
+});
 
 test('CSV is converted to JSON', () => {
     const testString = 'name,ring,quadrant,isNew,description\n\
@@ -15,6 +21,10 @@ Terraform,adopt,tools,No,"<Insert description>"';
     expect(result[0].label).toBe('Composer');
     expect(result[0].quadrant).toBe(0);
     expect(result[0].ring).toBe(0);
+
+    expect(result[1].label).toBe('Canary builds');
+    expect(result[1].quadrant).toBe(1);
+    expect(result[1].ring).toBe(1);    
 });
 
 test('stringToQuadrant', () => {
