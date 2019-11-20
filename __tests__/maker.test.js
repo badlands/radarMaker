@@ -1,4 +1,10 @@
-const sut = require('../maker.js');
+const RadarMaker = require('../maker.js').radarMaker;
+const QUADRANTS = [ { id: "tools", name: "Tools" }, { id: "techniques", name: "Techniques" }, { id: "data", name: "Data" }, { id: "techniques", name: "Platforms" } ];
+var sut = null;
+
+beforeEach(() => {
+    sut = new RadarMaker(QUADRANTS, {})
+});
 
 test('CSV is converted to JSON', () => {
     const testString = 'name,ring,quadrant,isNew,description\n\
