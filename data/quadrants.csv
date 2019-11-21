@@ -1,5 +1,5 @@
 index,id,name,description
-0,tools,Tools,These can be components, such as databases, software development tools, such as Versions Control Systems; or more generic categories of tools
-1,techniques,Techniques,Techniques
-2,platforms,Platforms,Things that we build software on top of such as mobile technologies like Android, virtual platforms like the JVM, or generic kinds of platforms like hybrid clouds.
-3,lang,Languages & Frameworks,Languages and software frameworks.
+0,lang,Languages & Frameworks,Languages and software frameworks.
+1,platforms,Platforms,Things that we build software on top of such as mobile technologies like Android, virtual platforms like the JVM, or generic kinds of platforms like hybrid clouds.
+2,techniques,Techniques,Techniques
+3,tools,Tools,These can be components, such as databases, software development tools, such as Versions Control Systems; or more generic categories of tools
