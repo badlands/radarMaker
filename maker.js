@@ -39,7 +39,7 @@ class RadarMaker {
       return {};
     }
 
-    return csv.data.map(line => this.lineToJson(line));
+    return csv.data.filter(line => line.name.length > 0).map(line => this.lineToJson(line));
   }
 
   /// From a single CSV line to JSON
