@@ -17,6 +17,6 @@
     "jest": "^24.9.0"
   },
   "dependencies": {
-    "papaparse": "^5.1.0"
+    "papaparse": "^5.2.0"
   }
 }
